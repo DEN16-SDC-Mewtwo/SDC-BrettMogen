@@ -6,19 +6,19 @@ USE overview;
 
 CREATE TABLE products (
   id INT NOT NULL AUTO_INCREMENT,
-  name varchar(36) NOT NULL,
-  slogan varchar(119) NOT NULL,
-  description varchar(472) NOT NULL,
-  category varchar(26) NOT NULL,
-  default_price varchar(17) NOT NULL,
+  name varchar(29) NOT NULL,
+  slogan varchar(120) NOT NULL,
+  description varchar(508) NOT NULL,
+  category varchar(18) NOT NULL,
+  default_price varchar(8) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE product_features (
   id int NOT NULL AUTO_INCREMENT,
   product_id INT,
-  feature varchar(33) NOT NULL,
-  value varchar(37) NOT NULL,
+  feature varchar(25) NOT NULL,
+  value varchar(30) NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (product_id) references products(id)
 );
@@ -26,9 +26,9 @@ CREATE TABLE product_features (
 CREATE TABLE product_styles (
   id int NOT NULL AUTO_INCREMENT,
   product_id INT,
-  name varchar(36) NOT NULL,
-  original_price varchar(19) NOT NULL,
-  sale_price varchar(14) NOT NULL,
+  name varchar(28) NOT NULL,
+  sale_price varchar(4) NOT NULL,
+  original_price varchar(10) NOT NULL,
   dflt BOOLEAN,
   PRIMARY KEY (id),
   FOREIGN KEY (product_id) references products(id)
@@ -37,8 +37,8 @@ CREATE TABLE product_styles (
 CREATE TABLE photos (
   id int NOT NULL AUTO_INCREMENT,
   style_id INT,
-  thumbnail_url varchar(250) NOT NULL,
-  url varchar(250) NOT NULL,
+  thumbnail_url varchar(154) NOT NULL,
+  url varchar(153) NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (style_id) references product_styles(id)
 );
@@ -46,8 +46,8 @@ CREATE TABLE photos (
 CREATE TABLE sku (
   id int NOT NULL AUTO_INCREMENT,
   style_id INT,
-  quantity INT NOT NULL,
-  size varchar(5) NOT NULL,
+  size varchar(9) NOT NULL,
+  quantity INT(2) NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (style_id) references product_styles(id)
 );
